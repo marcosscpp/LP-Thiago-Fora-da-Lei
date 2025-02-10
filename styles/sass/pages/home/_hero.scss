@@ -1,0 +1,62 @@
+.hero {
+  text-align: center;
+
+  &__logo {
+    margin: 0 auto 2rem;
+    position: relative;
+
+    img {
+      width: 9rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    &::before {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      box-shadow: 0 0 10rem 8rem rgba(255, 255, 255, 0.2);
+      content: "";
+      filter: blur(40px);
+      height: 4rem;
+      left: 50%;
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
+      width: 4rem;
+      z-index: 0;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+  }
+
+
+  &__headline {
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__subheadline {
+    max-width: 36rem;
+    text-wrap: balance;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__video {
+    margin: 2rem auto;
+    max-width: 40rem;
+
+    #smartplayer {
+      border-radius: 2.5rem !important;
+    }
+  }
+
+  &__btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

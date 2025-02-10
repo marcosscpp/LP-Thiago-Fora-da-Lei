@@ -1,0 +1,28 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  color: $white;
+  font-family: $primary-font;
+  font-weight: 200;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+html {
+  font-size: 162.5%;
+
+  @include respond-to("ultra") {
+    font-size: 137.5%;
+  }
+
+  @include respond-to("xxxl") {
+    font-size: 112.5%;
+  }
+
+  @include respond-to("xxl") {
+    font-size: 100%;
+  }
+
+  @include respond-to("md") {
+    font-size: 87.5%;
+  }
+}

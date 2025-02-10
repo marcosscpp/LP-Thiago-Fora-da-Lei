@@ -1,0 +1,73 @@
+.media {
+  &__title {
+    text-align: center;
+  }
+
+  &__image {
+    filter: drop-shadow(0 0 2rem rgba(255, 255, 255, 0.4));
+    margin-top: 1.25rem;
+    width: 7.5rem;
+  }
+
+  &__content {
+    gap: 1.5rem 4rem;
+  }
+
+  &__links {
+    gap: 1.5rem;
+  }
+
+  &__link {
+    $bg-color: $red-600;
+
+    align-items: center;
+    background: $bg-color;
+    filter: drop-shadow(0 0 1rem $red-600);
+    border-radius: $md-radius;
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0.75rem 0;
+    width: 16.25rem;
+
+    svg {
+      background-color: $white;
+      padding: 0.3125rem;
+      border-radius: 50%;
+      width: 0.5rem;
+      height: 0.5rem;
+      color: $bg-color;
+      position: absolute;
+      right: 1.25rem;
+    }
+  }
+}
+
+@mixin media-lg {
+  .media {
+
+    &__title {
+      text-wrap: balance;
+    }
+
+    &__image {
+      display: none;
+    }
+
+    &__content { 
+      flex-direction: column;
+      margin-top: 2rem;
+    }
+
+    &__links {
+      width: 100%;
+      max-width: 25rem;
+    }
+
+    &__link {
+      width: 100%;
+    }
+  }
+}

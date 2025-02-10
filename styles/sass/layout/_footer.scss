@@ -1,0 +1,57 @@
+.footer {
+  $background-color: $gray-200;
+  background: $background-color;
+  gap: 1.25rem;
+  padding: 1.5rem;
+
+  &__logo {
+    width: 10rem;
+  }
+
+  &__social-media {
+    gap: 1rem;
+    &-link {
+      background: $red-600;
+      border-radius: 50%;
+      height: 1.75rem;
+      transition: transform $animation-hover-duration ease-in-out, background $animation-hover-duration ease;
+      width: 1.75rem;
+      &:hover {
+        background: scale-color($red-600, $lightness: -40%);
+        transform: scale(1.2);
+      }
+    }
+
+    &-icon {
+      color: $white;
+      font-size: 1rem;
+    }
+  }
+
+  &__infos {
+    color: $black;
+    font-size: 0.875rem;
+    text-align: center;
+    max-width: 20rem;
+
+    li ~ li {
+      margin-top: .5rem;
+    }
+  }
+
+  &__btn {
+    background: transparent;
+    border: 2px solid $red-600;
+    border-radius: 1rem;
+    color: $red-600;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: color $animation-hover-duration ease, background $animation-hover-duration ease;
+    padding: 0.25rem;
+
+    &:hover {
+      background: $red-600;
+      color: $background-color;
+    }
+  }
+}

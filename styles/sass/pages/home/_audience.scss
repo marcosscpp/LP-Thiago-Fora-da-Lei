@@ -1,0 +1,57 @@
+.audience {
+  padding: .75rem 0;
+  &__container {
+    gap: 2rem 4rem;
+  }
+
+  &__card {
+    background: $gray-900;
+    border: 1px solid;
+    border-radius: $md-radius;
+
+    max-width: 25rem;
+    padding: 2.5rem;
+  }
+
+  &__title strong {
+    display: block;
+  }
+
+  &__items {
+    li {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    li ~ li {
+      margin-top: 0.75rem;
+    }
+
+    li::before {
+      left: 0;
+      top: 0;
+      position: absolute;
+    }
+
+    &.error {
+      li::before {
+        content: "❌";
+      }
+    }
+
+    &.ok {
+      li::before {
+        content: "✅";
+      }
+    }
+  }
+}
+
+@mixin audience-md {
+  .audience {
+    &__card {
+      max-width: none;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,154 @@
+$orbit-diameter: 25rem;
+$last-ring: 2;
+$item-sm-size: 1.125rem;
+$item-xl-size: 1.5rem;
+$item-margin-factor: 2;
+$ring-distance: 3rem;
+
+$item-count-per-ring: (
+  ring1: 3,
+  ring2: 4,
+);
+
+.career {
+  padding: 1.25rem 0;
+  &__title {
+    max-width: 12rem;
+  }
+
+  &__container {
+    gap: 0 4rem;
+  }
+
+  &__content {
+    max-width: 30rem;
+  }
+
+  &__items {
+    margin: 2rem 0;
+  }
+
+  &__item {
+    margin-bottom: 1.25rem;
+    max-width: 26rem;
+  }
+
+  strong {
+    font-size: 1em;
+  }
+}
+
+@mixin career-lg {
+  .career {
+    &__container {
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    &__title {
+      margin: 0 auto;
+    }
+  }
+}
+
+.orbit {
+  height: $orbit-diameter;
+  width: $orbit-diameter;
+  position: relative;
+
+  &__center {
+    border-radius: 50%;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+  }
+
+  &__item {
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+
+    &--sm {
+      height: $item-sm-size;
+      margin: -$item-sm-size / $item-margin-factor;
+      width: $item-sm-size;
+    }
+
+    &--xl {
+      height: $item-xl-size;
+      margin: -$item-xl-size / $item-margin-factor;
+      width: $item-xl-size;
+    }
+
+    &--gray {
+      background: $gray-700;
+    }
+
+    &--red {
+      background: $red-600;
+    }
+  }
+
+  &__ring {
+    border: solid 1px $gray-500;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    border-radius: 50%;
+    transition: transform 3s ease-in-out;
+  }
+}
+
+@mixin orbit-item($numItems, $numRing) {
+  @if ($numItems) {
+    @for $s from 0 through $numItems {
+      $deg: 380deg / $numItems;
+      .ring#{$numRing} > *:nth-of-type(#{$s + 1}) {
+        transform: rotate($s * $deg)
+          translate(
+            calc(
+              $orbit-diameter/2 -
+                #{($last-ring - $numRing) *
+                ($ring-distance / 2)}
+            )
+          )
+          rotate(calc(-1 * $s * $deg));
+      }
+    }
+  }
+}
+
+@for $i from 0 through $last-ring {
+  .ring#{$i} {
+    @if ($i != 0) {
+      animation: clockwiseRotate calc(35s - #{$i * 5s}) linear infinite;
+    }
+
+    height: calc(#{$orbit-diameter} - #{($last-ring - $i) * $ring-distance});
+    width: calc(#{$orbit-diameter} - #{($last-ring - $i) * $ring-distance});
+  }
+
+  @include orbit-item(map-get($item-count-per-ring, ring#{$i}), $i);
+}
+
+@keyframes clockwiseRotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@mixin orbit-sm {
+  .orbit {
+    transform: scale(0.8);
+  }
+}

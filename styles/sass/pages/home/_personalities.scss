@@ -1,0 +1,105 @@
+@use "sass:color";
+
+.personalities {
+  text-align: center;
+
+  &__title {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 42rem;
+  }
+
+  &__cards {
+    gap: 2.5rem 1.25rem;
+    margin: 3rem 0 5rem 0;
+  }
+
+  &__card {
+    align-items: center;
+    border-radius: 20px;
+    background: linear-gradient(
+      180deg,
+      color.adjust($red-500, $lightness: -40%, $saturation: 30%) 60%,
+      $red-500
+    );
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s ease;
+    position: relative;
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &::before {
+      content: "";
+      background-color: $white;
+      border-radius: 50%;
+      height: 30%;
+      filter: drop-shadow(0 0 3.125rem rgba(255, 255, 255, 0.8));
+      position: absolute;
+      top: 10%;
+      width: 100%;
+    }
+  }
+
+  &__card:hover &__image {
+    filter: none;
+  }
+
+  &__name {
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  &__image {
+    background-color: $gray-200;
+    border: 1px solid $gray-700;
+    border-radius: 20px;
+    filter: grayscale(100%);
+    object-fit: cover;
+    height: 18rem;
+    width: 12rem;
+    transition: filter 0.4s ease;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__name {
+    align-items: center;
+    display: flex;
+    height: 4rem;
+  }
+}
+
+@mixin personalities-sm {
+  .personalities {
+    padding: 0;
+    &__container {
+      overflow: hidden;
+    }
+
+    &__cards {
+      margin: 0;
+    }
+
+    &__card {
+      max-width: 20rem;
+      width: 100%;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    &__image {
+      width: 100%;
+      height: 20rem;
+      object-position: center top;
+    }
+
+    &__name {
+      font-size: 1.5rem;
+      height: 5rem;
+    }
+  }
+}

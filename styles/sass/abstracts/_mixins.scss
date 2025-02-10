@@ -1,0 +1,49 @@
+@mixin respond-to($breakpointMax, $breakpointMin: null) {
+  @if $breakpointMin {
+    @media (min-width: map-get($breakpoints, $breakpointMin)) and (max-width: map-get($breakpoints, $breakpointMax)) {
+      @content;
+    }
+  } @else {
+    @media (max-width: map-get($breakpoints, $breakpointMax)) {
+      @content;
+    }
+  }
+}
+
+@mixin flex(
+  $justify-content: center,
+  $align-items: center,
+  $responsive: false,
+  $flex-direction: row,
+  $flex-wrap: nowrap,
+  $breakpoint: "md"
+) {
+  align-items: $align-items;
+  display: flex;
+  flex-wrap: $flex-wrap;
+  justify-content: $justify-content;
+
+  @if $flex-direction != row {
+    flex-direction: $flex-direction;
+  }
+
+  @if $flex-wrap != nowrap {
+    flex-direction: $flex-direction;
+  }
+
+  @if $responsive {
+    @include respond-to($breakpoint) {
+      flex-direction: column;
+    }
+  }
+}
+
+@mixin container() {
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+
+  @include respond-to("md") {
+    padding: 2.5rem 1.25rem;
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,16 @@
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $red-600;
+  border-radius: 20px;
+
+  &:hover {
+    background-color: scale-color($red-600, $lightness: -30%);
+  }
+}

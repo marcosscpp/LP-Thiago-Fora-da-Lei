@@ -1,0 +1,60 @@
+.bonus {
+  &__container {
+    gap: 3rem 4rem;
+  }
+
+  &__image {
+    
+    filter: drop-shadow(0 0 2.5rem rgba(255, 255, 255, 0.3));
+    height: auto;
+    transition: filter $animation-hover-duration ease;
+    width: 25rem;
+
+    &:hover {
+      filter: drop-shadow(0 0 3.125rem rgba(255, 255, 255, 0.8));
+    }
+  }
+
+  &__content {
+    flex: 1;
+    max-width: 30rem;
+  }
+
+  &__items {
+    margin: 2rem 0;
+    min-width: 20rem;
+  }
+}
+
+@mixin bonus-md {
+  .bonus {
+    &__container {
+      flex-direction: column;
+    }
+
+    &__title {
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+@mixin bonus-sm {
+  .bonus {
+    &__image {
+      width: 20rem;
+    }
+
+    &__title {
+      text-align: center;
+    }
+  }
+}
+
+@mixin bonus-xs {
+  .bonus {
+    &__image {
+      width: 16rem;
+    }
+  }
+}

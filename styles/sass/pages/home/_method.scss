@@ -1,0 +1,65 @@
+.method {
+  &__container {
+    gap: 1.25rem 2.5rem;
+  }
+
+  &__introduction {
+    max-width: 25rem;
+  }
+
+  &__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 16rem;
+  }
+
+  &__operation {
+    border: 1px solid $gray-700;
+    border-radius: 40px;
+    text-align: center;
+    max-width: 38rem;
+    padding: 2rem 1.25rem;
+  }
+
+  &__steps {
+    gap: 1.25rem;
+    margin: 1.75rem 0;
+  }
+
+  &__step {
+    border: 1px solid $red-500;
+    border-radius: 0.75rem;
+    max-width: 20rem;
+    min-width: 12rem;
+    flex: 1;
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  &__image {
+    border: 1px solid $gray-700;
+    border-radius: 2.5rem;
+    height: auto;
+    margin-top: 1.5rem;
+  }
+
+  &__btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@mixin method-xl {
+  .method {
+    &__container {
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    &__introduction {
+      flex: 1;
+      max-width: 38rem;
+    }
+  }
+}

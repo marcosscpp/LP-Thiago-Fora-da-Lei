@@ -1,0 +1,49 @@
+.breakthrough {
+  background: linear-gradient(
+      90deg,
+      rgba(110, 0, 18, 0.7),
+      rgba(155, 0, 34, 0.8)
+    ),
+    url("#{$background-path}/road.jpg") no-repeat 20% center / 140%;
+  position: relative;
+  padding: 1.25rem 2.5rem;
+  margin: 3.25rem 0;
+
+  &__text {
+    max-width: 20rem;
+    margin-bottom: 2rem;
+  }
+
+  &__image {
+    -webkit-box-reflect: below 5px
+      linear-gradient(transparent 85%, rgba(0, 0, 0, 0.3));
+    width: 20rem;
+    object-fit: contain;
+    position: absolute;
+    height: 30rem;
+    right: 25%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@mixin breakthrough-xl {
+  .breakthrough {
+    background-position: center;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+
+    &__text {
+      max-width: none;
+      width: 100%;
+    }
+    &__image {
+      display: none;
+    }
+
+    &__btn {
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@include respond-to("xl") {
+  @include introduction-xl;
+  @include breakthrough-xl;
+  @include method-xl;
+}
+
+@include respond-to("lg") {
+  @include main-btn-lg;
+  @include media-lg;
+  @include career-lg;
+}
+
+@include respond-to("md") {
+  @include container-md;
+  @include title-md;
+  @include cases-md;
+  @include audience-md;
+  @include bonus-md;
+}
+
+@include respond-to("sm") {
+  @include about-sm;
+  @include orbit-sm;
+  @include list-icon-sm;
+  @include personalities-sm;
+  @include cases-sm;
+  @include bonus-sm;
+  section {
+    padding: 0 !important;
+  }
+}
+
+@include respond-to("xs") {
+  @include title-xs;
+  @include bonus-xs;
+}

@@ -1,0 +1,57 @@
+.about {
+  text-align: center;
+  padding: 1.25rem 0;
+
+  &__container {
+    max-width: 52rem;
+  }
+
+  &__image {
+    margin-top: 2.5rem;
+    position: relative;
+
+    &::before {
+      -webkit-filter: blur(40px);
+
+      background: url("#{$image-path}/about-image-low-res.jpg") no-repeat center /
+        cover;
+      content: "";
+      display: block;
+      filter: blur(40px);
+      height: 108%;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 105%;
+      z-index: 0;
+    }
+
+    img {
+      border: 1px solid $gray-700;
+      border-radius: 40px;
+      height: 20rem;
+      margin: 0 auto;
+      object-fit: cover;
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  &__text {
+    margin: 0 auto;
+    max-width: 40rem;
+  }
+}
+
+@mixin about-sm {
+  .about {
+    &__image::before {
+      height: 100%;
+    }
+
+    &__container {
+      overflow-x: hidden;
+    }
+  }
+}

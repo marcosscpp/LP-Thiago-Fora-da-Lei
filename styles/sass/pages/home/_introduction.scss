@@ -1,0 +1,77 @@
+.introduction {
+  &__container {
+    gap: 2rem 8rem;
+  }
+
+  &__title {
+    max-width: 35rem;
+  }
+
+  &__items {
+    margin-bottom: 0.5rem;
+    margin-top: auto;
+  }
+
+  &__content {
+    max-width: 36rem;
+  }
+
+  &__subtitle {
+    margin: 0;
+  }
+
+  &__image {
+    position: relative;
+    max-width: 23rem;
+
+
+    &::before {
+      -webkit-filter: blur(40px);
+
+      background: url("#{$image-path}/introduction-image-low-res.jpg") no-repeat
+        center / cover;
+      content: "";
+      display: block;
+      filter: blur(40px);
+      height: 108%;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-45%, -25%);
+      width: 110%;
+      z-index: 0;
+    }
+
+    img {
+      height: auto;
+      border: 1px solid $gray-700;
+      border-radius: 30px;
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+@mixin introduction-xl {
+  .introduction {
+    header {
+      text-align: center;
+    }
+
+    &__items {
+      margin-top: 2rem;
+    }
+
+    &__item {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__image {
+       width: 100%;
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
